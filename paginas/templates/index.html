@@ -1,0 +1,550 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>TDAH</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css1/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Inicio</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#introducao">Introdução ao TDAH</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#formulario">Formulario</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#contact">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <!--<img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />-->
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Inicio</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">O seguinte projeto
+                trata-se de um sistema facilitador que, por meio de um sistema especialista, realiza um possível
+                diagnóstico de TDAH, seguindo os dados fornecidos pelo formulário a seguir. Através de uma análise,
+                utilizando algortimo de Lógica Fuzzy e as diretrizes de diagnóstico do DSM IV (Diagnostic and
+                Statistical Manual of Mental Disorders, Fourth Edition), o sistema realiza os cálculos, retornando os
+                resultados com as situações de "pouco provável", "provável" e "muito provável" do perfil preenchido
+                conter o transtorno.</p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: start;">
+                As regras fuzzy definidas para o sistema foram:
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem altos E sintomas de hiperatividade/impulsividade forem altos ENTÃO muito provável o
+                diagnóstico do TDAH (Tipo Combinado);
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem altos E sintomas de hiperatividade/impulsividade forem médios ENTÃO muito provável o
+                diagnóstico do TDAH (Tipo Predominantemente Desatento);
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem médios E sintomas de hiperatividade/impulsividade forem altos ENTÃO muito provável o
+                diagnóstico do TDAH (Tipo Predominantemente Hiperativo-Impulsivo);
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem médios E sintomas de hiperatividade/impulsividade forem médios ENTÃO pouco provável o
+                diagnóstico do TDAH;
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem médios E sintomas de hiperatividade/impulsividade forem baixos ENTÃO pouco provável o
+                diagnóstico do TDAH;
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem baixos E sintomas de hiperatividade/impulsividade forem médios ENTÃO pouco provável o
+                diagnóstico do TDAH;
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem altos E sintomas de hiperatividade/impulsividade forem baixos ENTÃO provável o
+                diagnóstico do TDAH (Tipo Predominantemente Desatento);
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem baixos E sintomas de hiperatividade/impulsividade forem altos ENTÃO provável o
+                diagnóstico do TDAH (Tipo Predominantemente Hiperativo-Impulsivo);
+            </p>
+            <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">
+                SE sintomas de desatenção forem baixos E sintomas de hiperatividade/impulsividade forem baixos ENTÃO pouco provável o
+                diagnóstico do TDAH.
+            </p>
+        </div>
+    </header>
+    <!-- Portfolio Section-->
+    <section class="page-section introducao" id="introducao">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Breve Introdução ao TDAH</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+                <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">O Transtorno do
+                    Déficit de Atenção com Hiperatividade (TDAH) é um transtorno neurobiológico, de causas genéticas,
+                    que aparece na infância e freqüentemente acompanha o indivíduo por toda a sua vida. Ele se
+                    caracteriza por sintomas de desatenção, inquietude e impulsividade. Ele é chamado às vezes de DDA
+                    (Distúrbio do Déficit de Atenção). Em inglês, também é chamado de ADD, ADHD ou de AD/HD.</p>
+                <p class="masthead-subheading font-weight-light mb-0" style="text-align: justify;">Esse projeto trata-se
+                    de uma pesquisa realizada com o objetivo de compreender e sintetizar a detecção do transtorno do
+                    déficit de atenção e hiperatividade (TDAH), tornando, assim, de forma básica e simples, a
+                    viabilização de um sistema especialista capaz realizar uma análise inteligente e detectar as
+                    possibilidades, com base nos dados fornecidos. O sistema é voltado para escolas e sua premissa é
+                    auxiliar professores do ensino básico, com turmas entre seis e dez anos, que possuem dúvidas sobre o
+                    comportamento de falta de atenção e hiperatividade de seus alunos. o algoritmo analisa o perfil da
+                    criança e retorna as chances de possuir o déficit.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Formulario Section-->
+    <section class="page-section bg-primary text-white mb-0" id="formulario">
+        <div class="container">
+            <!-- Formulario Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">Formulário</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Formulario Section Content-->
+            <style>
+                .row.form label {
+                    font-size: 18px;
+                }
+
+                .result.modal {
+                    color: #000
+                }
+            </style>
+            <h3 style="text-align: center;">Marque as opções que represente o perfil a ser diagnosticado</h3>
+            <p style="text-align: center;">A analise será feita levando em consideração o DSM IV (Diagnostic and
+                Statistical Manual of Mental Disorders, Fourth Edition)</p>
+            <hr>
+            <div class="row form">
+                <div class="col-md-6">
+                    <h3>Desatenção</h3>
+                    <hr>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg1" id="perg1">
+                        <label class="form-check-label" for="perg1" style="text-align: justify;">frequentemente não
+                            presta atenção a detalhes ou
+                            comete erros por omissão em atividades escolares, de trabalho ou outras; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg2" id="perg2">
+                        <label class="form-check-label" for="perg2" style="text-align: justify;">com frequência tem
+                            dificuldade para manter a atenção
+                            em tarefas ou atividades lúdicas;</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg3" id="perg3">
+                        <label class="form-check-label" for="perg3" style="text-align: justify;">com frequência parece
+                            não ouvir quando lhe dirigem a
+                            palavra; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg4" id="perg4">
+                        <label class="form-check-label" for="perg4" style="text-align: justify;">com frequência não
+                            segue instruções e não termina
+                            seus deveres escolares, tarefas domésticas ou deveres profissionais (não devido a
+                            comportamento de oposição ou incapacidade de compreender instruções); </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg5" id="perg5">
+                        <label class="form-check-label" for="perg5" style="text-align: justify;">com frequência tem
+                            dificuldade para organizar
+                            tarefas e atividades; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg6" id="perg6">
+                        <label class="form-check-label" for="perg6" style="text-align: justify;">com frequência evita,
+                            demonstra ojeriza ou reluta em
+                            envolver-se em tarefas que exijam esforço mental constante (como tarefas escolares ou
+                            deveres de casa); </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg7" id="perg7">
+                        <label class="form-check-label" for="perg7" style="text-align: justify;">com frequência perde
+                            coisas necessárias para tarefas
+                            ou atividades (p.ex., brinquedos, tarefas escolares, lápis, livros ou outros materiais);
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg8" id="perg8">
+                        <label class="form-check-label" for="perg8" style="text-align: justify;">é facilmente distraído
+                            por estímulos alheios à
+                            tarefa; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg9" id="perg9">
+                        <label class="form-check-label" for="perg9" style="text-align: justify;">com frequência
+                            apresenta esquecimento em atividades
+                            diárias;</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3>Hiperatividade/Impulsividade</h3>
+                    <hr>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg10" id="perg10">
+                        <label class="form-check-label" for="perg10" style="text-align: justify;">frequentemente agita
+                            as mãos ou os pés ou se remexe
+                            na cadeira; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg11" id="perg11">
+                        <label class="form-check-label" for="perg11" style="text-align: justify;">frequentemente
+                            abandona sua cadeira em sala de aula
+                            ou outras situações nas quais se espera que permaneça sentado; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg12" id="perg12">
+                        <label class="form-check-label" for="perg12" style="text-align: justify;">frequentemente corre
+                            ou escala em demasia, em
+                            situações impróprias (em adolescentes e adultos, pode estar limitado a sensações subjetivas
+                            de inquietação); </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg13" id="perg13">
+                        <label class="form-check-label" for="perg13" style="text-align: justify;">com frequência tem
+                            dificuldade para brincar ou se
+                            envolver silenciosamente em atividades de lazer;</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg14" id="perg14">
+                        <label class="form-check-label" for="perg14" style="text-align: justify;">está frequentemente “a
+                            mil” ou muitas vezes age
+                            como se estivesse “a todo vapor”; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg15" id="perg15">
+                        <label class="form-check-label" for="perg15" style="text-align: justify;">frequentemente fala em
+                            demasia; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg16" id="perg16">
+                        <label class="form-check-label" for="perg16" style="text-align: justify;">frequentemente dá
+                            respostas precipitadas antes de
+                            as perguntas terem sido completamente formuladas; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg17" id="perg17">
+                        <label class="form-check-label" for="perg17" style="text-align: justify;">com frequência tem
+                            dificuldade para aguardar a sua
+                            vez; </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="perg18" id="perg18">
+                        <label class="form-check-label" for="perg18" style="text-align: justify;">frequentemente
+                            interrompe ou se intromete em
+                            assuntos alheios (p. ex. em conversas ou brincadeiras);</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal result" tabindex="-1" role="dialog" style="display: none">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Resultado</h5>
+                            <button type="button" class="close" data-dismiss="modal" onclick="fecharModal()"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <center>
+                                <h3 class="resultText"></h3>
+                                <canvas id="chart"></canvas>
+                                <p class="textoLegenda"></p>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario Section Button-->
+            <div class="text-center mt-4">
+                <div class="btn btn-xl btn-outline-light" onClick="abrirQuestionario()">
+                    <i class="fas fa mr-2"></i>
+                    Realizar Teste
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function fecharModal() {
+            $('.result.modal').fadeOut(300)
+            $('canvas#chart').remove();
+            $('.resultText').after($('<canvas id="chart"></canvas>'))
+        }
+        function abrirQuestionario() {
+            $('.result.modal').fadeIn(300)
+            let values = {};
+            const els = $('.row.form .form-check-input').map((i, el) => {
+                const curEl = $(el);
+
+                values[curEl.attr('id')] = +curEl.is(':checked');
+            });
+            $.ajax({
+                url: '/submit',
+                type: 'get',
+                data: values
+            }).then(res => {
+                $('.resultText').text(res.resultado)
+                buildChart(res.grafico)
+                $('.textoLegenda').text(res.texto)
+            })
+        }
+        function buildChart(pin) {
+            var ctx = document.getElementById('chart').getContext('2d');
+
+            function calc(start, end, asc = true) {
+                let res = [];
+
+                if (start > 0) for (let i = 0; i < start; i++) res.push(undefined);
+
+                const diff = end - start;
+
+                for (let i = start; i <= end; i++) res.push(asc ? (1 / diff * i) : (1 - (i / diff)));
+                console.log({ res, diff, asc, start, end })
+                return asc ? res.map(x => x - 1) : res;
+            }
+
+            function botaPinY(dado){
+                if(dado <= 0) return 1
+                if (dado >= 0 && dado < 1) return 0.95
+                if (dado >= 1 && dado < 2) return 0.85
+                if (dado >= 2 && dado < 3) return 0.75
+                if (dado >= 3 && dado < 4) return 0.63
+                if (dado >= 4 && dado < 5) return 0.55
+                if (dado >= 5 && dado < 6) return 0.6
+                if (dado >= 6 && dado < 7) return 0.73
+                if (dado >= 7 && dado < 8) return 0.85
+                if (dado >= 8 && dado < 9) return 0.95
+                if (dado >= 9 && dado < 10) return 0.95
+                if (dado >= 10 && dado < 11) return 0.85
+                if (dado >= 11 && dado < 12) return 0.75
+                if (dado >= 12 && dado < 13) return 0.6
+                if (dado >= 13 && dado < 14) return 0.55
+                if (dado >= 14 && dado < 15) return 0.6
+                if (dado >= 15 && dado < 16) return 0.73
+                if (dado >= 16 && dado < 17) return 0.85
+                if (dado >= 17 && dado < 18) return 0.95
+                if (dado >= 18) return 1
+            }
+            console.log(pin)
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                    datasets: [{
+                        label: 'Pouco provável',
+                        borderColor: 'rgb(105, 189, 210)',
+                        data: calc(0, 9, false)
+                    }, {
+                        label: 'Provável',
+                        borderColor: 'rgb(26, 188, 156)',
+                        data: (() => {
+                            const val1 = calc(0, 9);
+                            const val2 = calc(9, 18, false).filter(v => !!v);
+                            const res = [...val1, ...val2];
+
+                            console.log({ val1, val2, res });
+                            return res.map(v => v + 1);
+                        })()
+                    }, {
+                        label: 'Muito provável',
+                        borderColor: 'rgb(4, 47, 102)',
+                        data: calc(9, 18)
+                    },
+                    {
+                        label: 'Diagnóstico',
+                        backgroundColor: 'rgba(0,0,0,0.7)',
+                        borderColor: '#fff',
+                        borderWidth: 1,
+                        radius: 7,
+                        type: 'bubble',
+                        data: [
+                            {
+                                y: botaPinY(pin),
+                                x: Math.round(pin)
+                            }
+                        ]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+        }
+
+    </script>
+    <!-- Contact Section-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Entre em contato:</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form-->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Nome</label>
+                                <input class="form-control" id="name" type="text" placeholder="Nome" required="required"
+                                    data-validation-required-message="Por favor, insira seu nome!" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Email</label>
+                                <input class="form-control" id="email" type="email" placeholder="Email"
+                                    required="required"
+                                    data-validation-required-message="Por favor, insira seu email!" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Telefone</label>
+                                <input class="form-control" id="phone" type="tel" placeholder="Telefone"
+                                    required="required"
+                                    data-validation-required-message="Por favor, insira seu telefone!" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Mensagem</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Mensagem"
+                                    required="required"
+                                    data-validation-required-message="Por favor, insira sua mensagem"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br />
+                        <div id="success"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton"
+                                type="submit">Enviar</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">UNISAGRADO</h4>
+                    <p class="lead mb-0">
+                        R. Irmã Arminda, 10-50
+                        <br />
+                        Jardim Brasil, Bauru - SP, Cep: 17011-160
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">ORIENTADOR</h4>
+                    <p class="lead mb-0">
+                        Professor Me. Patrick Pedreira
+                        <br />
+                        <a class="btn btn-outline-light btn-social mx-1"
+                            href="https://www.linkedin.com/in/patrickpedreira/"><i
+                                class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1"
+                            href="http://www.professorpatrick.com/quem-sou/"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </p>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">ALUNO</h4>
+                    <p class="lead mb-0">
+                        José Henrique Bispo Colombo
+                        <br />
+                        <a class="btn btn-outline-light btn-social mx-1"
+                            href="https://www.linkedin.com/in/jos%C3%A9-henrique-bispo-colombo-244a58141/"><i
+                                class="fab fa-fw fa-linkedin-in"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Copyright Section-->
+    <!-- <div class="copyright py-4 text-center text-white">-->
+    <!--     <div class="container"><small>Copyright © Your Website 2020</small></div>-->
+    <!-- </div>-->
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
+                class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
